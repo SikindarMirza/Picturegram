@@ -46,10 +46,8 @@ def set_post
   @post = Post.find(params[:id])
 end
 def owned_post
-  if current_user == @post.user
-    flash[:success] = "That post  belong to you"
-  else
-    flash[:alert] = "This post does not belongs to you"
+  unless current_user == @post.user
+    flash[:alert] = "That post doesn't belong to you"
     redirect_to root_path
   end
 end
