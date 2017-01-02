@@ -13,7 +13,7 @@ def create
   end
 end
 def destroy
-  @comment = @post.comment.find(params[:id])
+  @comment = @post.comments.find(params[:id])
 
   @comment.destroy
   flash[:success] = "Comment deleted!!!"
